@@ -1,0 +1,47 @@
+{
+    "name": "justbetter/laravel-magento-webhooks",
+    "description": "A Laravel package to listen to webhooks dispatched from mageplaza/webhooks.",
+    "type": "package",
+    "license": "MIT",
+    "homepage": "https://github.com/justbetter/laravel-magento-webhooks",
+    "authors": [
+        {
+            "name": "Ramon Rietdijk",
+            "email": "ramon@justbetter.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^8.0 || ^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0 || ^7.0",
+        "phpunit/phpunit": "^9.5.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "JustBetter\\MagentoWebhooks\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JustBetter\\MagentoWebhooks\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JustBetter\\MagentoWebhooks\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
