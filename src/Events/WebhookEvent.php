@@ -6,9 +6,8 @@ abstract class WebhookEvent
 {
     public function __construct(
         public string $event,
-        public array  $data
-    )
-    {
+        public array $data
+    ) {
         //
     }
 }

@@ -17,7 +17,7 @@ class ServiceProvider extends BaseServiceProvider
 
     protected function registerConfig(): static
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/magento-webhooks.php', 'magento-webhooks');
+        $this->mergeConfigFrom(__DIR__.'/../config/magento-webhooks.php', 'magento-webhooks');
 
         return $this;
     }
@@ -39,7 +39,7 @@ class ServiceProvider extends BaseServiceProvider
     protected function bootConfig(): static
     {
         $this->publishes([
-            __DIR__ . '/../config/magento-webhooks.php' => config_path('magento-webhooks.php'),
+            __DIR__.'/../config/magento-webhooks.php' => config_path('magento-webhooks.php'),
         ], 'config');
 
         return $this;
@@ -47,12 +47,10 @@ class ServiceProvider extends BaseServiceProvider
 
     protected function bootRoutes(): static
     {
-        if (!$this->app->routesAreCached()) {
-
+        if (! $this->app->routesAreCached()) {
             Route::prefix(config('magento-webhooks.prefix'))
                 ->middleware(config('magento-webhooks.middleware'))
-                ->group(fn() => $this->loadRoutesFrom(__DIR__ . '/../routes/api.php'));
-
+                ->group(fn () => $this->loadRoutesFrom(__DIR__.'/../routes/api.php'));
         }
 
         return $this;

@@ -13,13 +13,11 @@ class EventJobTest extends TestCase
     public function it_can_dispatch_events(): void
     {
         $this->mock(DispatchesEvents::class, function (MockInterface $mock): void {
-
             $mock
                 ->shouldReceive('dispatch')
                 ->with('::event::', ['some' => 'value'])
                 ->once()
                 ->andReturn();
-
         });
 
         EventJob::dispatch('::event::', ['some' => 'value']);

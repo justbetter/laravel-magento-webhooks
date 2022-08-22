@@ -19,10 +19,7 @@ class EventControllerTest extends TestCase
         ]);
 
         Bus::assertDispatched(EventJob::class, function (EventJob $eventJob): bool {
-
-            return $eventJob->event === '::event::'
-                && $eventJob->data === ['some' => 'value'];
-
+            return $eventJob->event === '::event::' && $eventJob->data === ['some' => 'value'];
         });
     }
 

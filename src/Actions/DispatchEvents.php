@@ -12,7 +12,7 @@ class DispatchEvents implements DispatchesEvents
     {
         $events = config('magento-webhooks.events');
 
-        if (!isset($events[$event])) {
+        if (! isset($events[$event])) {
             return;
         }
 
@@ -21,12 +21,10 @@ class DispatchEvents implements DispatchesEvents
         collect($webhooks)
             ->unique()
             ->each(function (string $webhook) use ($event, $data): void {
-                Event::dispatch(
-                    app($webhook, [
-                        'event' => $event,
-                        'data' => $data,
-                    ])
-                );
+                Event::dispatch($webhook, [
+                    'event' => $event,
+                    'data' => $data,
+                ]);
             });
     }
 
