@@ -21,10 +21,12 @@ class DispatchEvents implements DispatchesEvents
         collect($webhooks)
             ->unique()
             ->each(function (string $webhook) use ($event, $data): void {
-                Event::dispatch($webhook, [
-                    'event' => $event,
-                    'data' => $data,
-                ]);
+                Event::dispatch(
+                    app($webhook, [
+                        'event' => $event,
+                        'data' => $data,
+                    ])
+                );
             });
     }
 

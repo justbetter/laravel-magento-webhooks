@@ -22,7 +22,10 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents = app(DispatchEvents::class);
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
-        Event::assertDispatched(FakeEvent::class, 1);
+        Event::assertDispatched(FakeEvent::class, function (FakeEvent $fakeEvent): bool {
+            return $fakeEvent->event === 'test-event'
+                && $fakeEvent->data === ['some' => 'value'];
+        });
     }
 
     /** @test */
@@ -40,7 +43,10 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents = app(DispatchEvents::class);
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
-        Event::assertDispatched(FakeEvent::class, 1);
+        Event::assertDispatched(FakeEvent::class, function (FakeEvent $fakeEvent): bool {
+            return $fakeEvent->event === 'test-event'
+                && $fakeEvent->data === ['some' => 'value'];
+        });
     }
 
     /** @test */
@@ -60,7 +66,10 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents = app(DispatchEvents::class);
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
-        Event::assertDispatched(FakeEvent::class, 1);
+        Event::assertDispatched(FakeEvent::class, function (FakeEvent $fakeEvent): bool {
+            return $fakeEvent->event === 'test-event'
+                && $fakeEvent->data === ['some' => 'value'];
+        });
     }
 
     /** @test */
@@ -74,6 +83,6 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents = app(DispatchEvents::class);
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
-        Event::assertDispatched(FakeEvent::class, 0);
+        Event::assertNotDispatched(FakeEvent::class);
     }
 }
