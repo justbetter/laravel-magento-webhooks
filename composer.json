@@ -36,7 +36,7 @@
         "test": "phpunit",
         "analyse": "phpstan",
         "style": "pint --test",
-        "check": [
+        "quality": [
             "@test",
             "@analyse",
             "@style"
