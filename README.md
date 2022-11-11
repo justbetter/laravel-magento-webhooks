@@ -11,6 +11,9 @@ This package has an endpoint to receive events from
 the [Mageplaza Webhooks](https://github.com/mageplaza/magento-2-webhook) module. It can be configured to dispatch
 Laravel events when a specific event in Magento has been triggered.
 
+> Also check out our other [Laravel Magento packages)(https://github.com/justbetter?q=laravel-magento)!
+> We also have a [Magento Client](https://github.com/justbetter/laravel-magento-client) to easily connect Laravel to Magento!
+
 ## Installation
 
 Install the composer package.
