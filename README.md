@@ -1,10 +1,14 @@
+<a href="https://github.com/justbetter/laravel-magento-webhooks" title="JustBetter">
+    <img src="art/banner.svg" alt="Banner">
+</a>
+
 # Laravel Magento Webhooks
 
 <p>
-    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/github/workflow/status/justbetter/laravel-magento-webhooks/tests?label=tests&style=flat-square" alt="Tests"></a>
-    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/github/workflow/status/justbetter/laravel-magento-webhooks/coverage?label=coverage&style=flat-square" alt="Coverage"></a>
-    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/github/workflow/status/justbetter/laravel-magento-webhooks/analyse?label=analysis&style=flat-square" alt="Analysis"></a>
-    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/packagist/dt/justbetter/laravel-magento-webhooks?color=blue&style=flat-square" alt="Total downloads"></a>
+    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/github/workflow/status/justbetter/laravel-magento-webhooks/tests?label=tests&style=flat" alt="Tests"></a>
+    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/github/workflow/status/justbetter/laravel-magento-webhooks/coverage?label=coverage&style=flat" alt="Coverage"></a>
+    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/github/workflow/status/justbetter/laravel-magento-webhooks/analyse?label=analysis&style=flat" alt="Analysis"></a>
+    <a href="https://github.com/justbetter/laravel-magento-webhooks"><img src="https://img.shields.io/packagist/dt/justbetter/laravel-magento-webhooks?color=blue&style=flat" alt="Total downloads"></a>
 </p>
 
 This package has an endpoint to receive events from
@@ -155,3 +159,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+<a href="https://justbetter.nl" title="JustBetter">
+    <img src="art/footer.svg" alt="JustBetter logo">
+</a>
