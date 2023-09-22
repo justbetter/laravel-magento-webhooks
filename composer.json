@@ -13,12 +13,12 @@
     ],
     "require": {
         "php": "^8.1",
-        "laravel/framework": "^10.0"
+        "laravel/framework": "10.*",
+        "orchestra/testbench": "8.*"
     },
     "require-dev": {
         "laravel/pint": "^1.6",
         "nunomaduro/larastan": "^2.5",
-        "orchestra/testbench": "^8.0",
         "phpstan/phpstan-mockery": "^1.1",
         "phpunit/phpunit": "^10.0"
     },
