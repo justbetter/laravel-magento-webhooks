@@ -4,6 +4,7 @@ namespace JustBetter\MagentoWebhooks\Tests\Actions;
 
 use Illuminate\Support\Facades\Event;
 use JustBetter\MagentoWebhooks\Actions\DispatchEvents;
+use JustBetter\MagentoWebhooks\Models\EventLog;
 use JustBetter\MagentoWebhooks\Tests\Fakes\Events\FakeEvent;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 
@@ -84,5 +85,29 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
         Event::assertNotDispatched(FakeEvent::class);
+    }
+
+    /** @test */
+    public function it_logs_events_in_database(): void
+    {
+        Event::fake();
+
+        config()->set('magento-webhooks.events', [
+            'test-event' => [
+                FakeEvent::class,
+            ],
+        ]);
+
+        /** @var DispatchEvents $dispatchEvents */
+        $dispatchEvents = app(DispatchEvents::class);
+        $dispatchEvents->dispatch('test-event', ['some' => 'value']);
+
+        $log = EventLog::query()
+            ->where('event', '=', 'test-event')
+            ->firstOrFail();
+
+        $this->assertEquals([
+            'some' => 'value',
+        ], $log->data);
     }
 }

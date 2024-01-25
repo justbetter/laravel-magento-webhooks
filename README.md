@@ -34,12 +34,29 @@ Publish the configuration of the package.
 php artisan vendor:publish --provider="JustBetter\MagentoWebhooks\ServiceProvider" --tag=config
 ```
 
+Run the migration for the event logs.
+
+```shell
+php artisan migrate
+```
+
 ## Configuration
 
 The `events` array located in your configuration can be used to add events.
 
 By default, **no middleware** is present on the webhook url. This can be changed by adding your own middleware to
 the `middleware` array, like authentication.
+
+### Schedule clean up command
+
+In order to keep the database from filling up, schedule the `CleanLogsCommand` in your Kernel.
+
+```php
+$schedule->command(CleanLogsCommand::class)->daily();
+```
+
+This command supports usage of a custom date, this date will indicate removing the logs from before that date, this defaults to one month.
+An optional `--force` option can also be given to completely truncate all data.
 
 ## Magento Webhook Configuration
 

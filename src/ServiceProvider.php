@@ -4,7 +4,9 @@ namespace JustBetter\MagentoWebhooks;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use JustBetter\MagentoWebhooks\Actions\CleanLogs;
 use JustBetter\MagentoWebhooks\Actions\DispatchEvents;
+use JustBetter\MagentoWebhooks\Commands\CleanLogsCommand;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -25,6 +27,7 @@ class ServiceProvider extends BaseServiceProvider
     protected function registerActions(): static
     {
         DispatchEvents::bind();
+        CleanLogs::bind();
 
         return $this;
     }
@@ -33,6 +36,8 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this
             ->bootConfig()
+            ->bootCommands()
+            ->bootMigrations()
             ->bootRoutes();
     }
 
@@ -51,6 +56,24 @@ class ServiceProvider extends BaseServiceProvider
             Route::prefix(config('magento-webhooks.prefix'))
                 ->middleware(config('magento-webhooks.middleware'))
                 ->group(fn () => $this->loadRoutesFrom(__DIR__.'/../routes/api.php'));
+        }
+
+        return $this;
+    }
+
+    protected function bootMigrations(): static
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        return $this;
+    }
+
+    protected function bootCommands(): static
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                CleanLogsCommand::class,
+            ]);
         }
 
         return $this;

@@ -2,11 +2,14 @@
 
 namespace JustBetter\MagentoWebhooks\Tests;
 
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use JustBetter\MagentoWebhooks\ServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
+    use LazilyRefreshDatabase;
+
     protected function getPackageProviders($app): array
     {
         return [
