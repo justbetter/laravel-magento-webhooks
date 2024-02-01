@@ -1,6 +1,6 @@
 # Upgrade guide
 
-# 1.x to 2.x
+## 1.x to 2.x
 
 2.x introduces the use of a database to log files
 

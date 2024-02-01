@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('event_logs', function (Blueprint $table): void {
+        Schema::create('magento_webhooks_event_logs', function (Blueprint $table): void {
             $table->id();
             $table->string('event')->index();
             $table->json('data')->nullable();
@@ -18,6 +18,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('event_logs');
+        Schema::dropIfExists('magento_webhooks_event_logs');
     }
 };

@@ -9,8 +9,8 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $event
  * @property ?array $data
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property ?Carbon $created_at
+ * @property ?Carbon $updated_at
  */
 class EventLog extends Model
 {

@@ -8,10 +8,10 @@ use JustBetter\MagentoWebhooks\Commands\CleanLogsCommand;
 use JustBetter\MagentoWebhooks\Jobs\CleanLogsJob;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 
-class CommandDispatchTest extends TestCase
+class CleanLogsCommandTest extends TestCase
 {
     /** @test */
-    public function test_it_dispatches_job(): void
+    public function it_can_dispatch_clean_logs_job(): void
     {
         Bus::fake();
 
@@ -26,7 +26,7 @@ class CommandDispatchTest extends TestCase
     }
 
     /** @test */
-    public function test_it_dispatches_with_date(): void
+    public function it_can_dispatch_clean_logs_job_with_date(): void
     {
         Bus::fake();
 

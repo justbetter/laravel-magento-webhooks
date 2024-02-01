@@ -1,6 +1,6 @@
 <?php
 
-namespace Actions;
+namespace JustBetter\MagentoWebhooks\Tests\Actions;
 
 use JustBetter\MagentoWebhooks\Actions\CleanLogs;
 use JustBetter\MagentoWebhooks\Models\EventLog;
