@@ -52,10 +52,16 @@ the `middleware` array, like authentication.
 In order to keep the database from filling up, schedule the `CleanLogsCommand` in your Kernel.
 
 ```php
+use JustBetter\MagentoWebhooks\Commands\CleanLogsCommand;
+
 $schedule->command(CleanLogsCommand::class)->daily();
 ```
 
-This command supports usage of a custom date, you can pass a date as a parameter which will clean logs from before this date, this defaults to one month.
+This command supports usage of a custom date. You can pass a date as a parameter which will clean logs from before this date. This date defaults to one month prior.
+
+```shell
+php artisan magento:webhooks:clean-logs --date="yesterday"
+```
 
 ## Magento Webhook Configuration
 

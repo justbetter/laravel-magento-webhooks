@@ -19,7 +19,7 @@ class CleanLogsJob implements ShouldBeUnique, ShouldQueue
     public function __construct(
         protected Carbon $date,
     ) {
-        $this->onQueue(config('magento-webhooks.queue.default'));
+        $this->onQueue(config('magento-webhooks.queue'));
     }
 
     public function handle(CleansLogs $contract): void
