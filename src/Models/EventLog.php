@@ -14,6 +14,8 @@ use Illuminate\Support\Carbon;
  */
 class EventLog extends Model
 {
+    protected $table = 'magento_webhooks_event_logs';
+
     protected $guarded = [];
 
     protected $casts = [
