@@ -1,6 +1,16 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-magento-webhooks/compare/1.2.0...main)
+[Unreleased changes](https://github.com/justbetter/laravel-magento-webhooks/compare/2.0.0...main)
+## [2.0.0](https://github.com/justbetter/laravel-magento-webhooks/releases/tag/2.0.0) - 2024-02-01
+
+### What's Changed
+* Added event logging in database by @fritsjustbetter in https://github.com/justbetter/laravel-magento-webhooks/pull/8
+
+### New Contributors
+* @fritsjustbetter made their first contribution in https://github.com/justbetter/laravel-magento-webhooks/pull/8
+
+**Full Changelog**: https://github.com/justbetter/laravel-magento-webhooks/compare/1.2.0...2.0.0
+
 ## [1.2.0](https://github.com/justbetter/laravel-magento-webhooks/releases/tag/1.2.0) - 2023-03-10
 
 ### What's Changed
