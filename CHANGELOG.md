@@ -1,6 +1,14 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-magento-webhooks/compare/2.0.0...main)
+[Unreleased changes](https://github.com/justbetter/laravel-magento-webhooks/compare/2.1.0...main)
+## [2.1.0](https://github.com/justbetter/laravel-magento-webhooks/releases/tag/2.1.0) - 2024-03-29
+
+### What's Changed
+* Support Laravel 11 by @VincentBean in https://github.com/justbetter/laravel-magento-webhooks/pull/9
+
+
+**Full Changelog**: https://github.com/justbetter/laravel-magento-webhooks/compare/2.0.0...2.1.0
+
 ## [2.0.0](https://github.com/justbetter/laravel-magento-webhooks/releases/tag/2.0.0) - 2024-02-01
 
 ### What's Changed
