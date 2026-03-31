@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks\Tests\Jobs;
 
 use JustBetter\MagentoWebhooks\Contracts\CleansLogs;
@@ -7,10 +9,9 @@ use JustBetter\MagentoWebhooks\Jobs\CleanLogsJob;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 use Mockery\MockInterface;
 
-class CleanLogsJobTest extends TestCase
+final class CleanLogsJobTest extends TestCase
 {
-    /** @test */
-    public function it_can_clean_event_logs(): void
+    public function test_it_can_clean_event_logs(): void
     {
         $date = now()->subMonth();
 

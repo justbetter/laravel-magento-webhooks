@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks;
 
 use Illuminate\Support\Facades\Route;
@@ -10,6 +12,7 @@ use JustBetter\MagentoWebhooks\Commands\CleanLogsCommand;
 
 class ServiceProvider extends BaseServiceProvider
 {
+    #[\Override]
     public function register(): void
     {
         $this

@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks\Tests\Http\Controllers;
 
 use Illuminate\Support\Facades\Bus;
 use JustBetter\MagentoWebhooks\Jobs\EventJob;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 
-class EventControllerTest extends TestCase
+final class EventControllerTest extends TestCase
 {
-    /** @test */
-    public function it_can_dispatch_jobs(): void
+    public function test_it_can_dispatch_jobs(): void
     {
         Bus::fake();
 
@@ -18,13 +19,10 @@ class EventControllerTest extends TestCase
             'some' => 'value',
         ]);
 
-        Bus::assertDispatched(EventJob::class, function (EventJob $eventJob): bool {
-            return $eventJob->event === '::event::' && $eventJob->data === ['some' => 'value'];
-        });
+        Bus::assertDispatched(EventJob::class, fn (EventJob $eventJob): bool => $eventJob->event === '::event::' && $eventJob->data === ['some' => 'value']);
     }
 
-    /** @test */
-    public function it_can_validate_requests(): void
+    public function test_it_can_validate_requests(): void
     {
         Bus::fake();
 

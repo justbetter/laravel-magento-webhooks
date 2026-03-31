@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks\Jobs;
 
 use Illuminate\Bus\Queueable;

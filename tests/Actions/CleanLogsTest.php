@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks\Tests\Actions;
 
 use JustBetter\MagentoWebhooks\Actions\CleanLogs;
 use JustBetter\MagentoWebhooks\Models\EventLog;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 
-class CleanLogsTest extends TestCase
+final class CleanLogsTest extends TestCase
 {
-    /** @test */
-    public function it_cleans_logs(): void
+    public function test_it_cleans_logs(): void
     {
         EventLog::query()->create([
             'event' => 'some-event',

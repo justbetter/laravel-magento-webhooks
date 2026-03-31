@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks\Tests\Jobs;
 
 use JustBetter\MagentoWebhooks\Contracts\DispatchesEvents;
@@ -7,10 +9,9 @@ use JustBetter\MagentoWebhooks\Jobs\EventJob;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 use Mockery\MockInterface;
 
-class EventJobTest extends TestCase
+final class EventJobTest extends TestCase
 {
-    /** @test */
-    public function it_can_dispatch_events(): void
+    public function test_it_can_dispatch_events(): void
     {
         $this->mock(DispatchesEvents::class, function (MockInterface $mock): void {
             $mock
@@ -23,11 +24,10 @@ class EventJobTest extends TestCase
         EventJob::dispatch('::event::', ['some' => 'value']);
     }
 
-    /** @test */
-    public function it_has_correct_tags(): void
+    public function test_it_has_correct_tags(): void
     {
         $job = new EventJob('::event::', []);
 
-        $this->assertEquals(['::event::'], $job->tags());
+        $this->assertSame(['::event::'], $job->tags());
     }
 }
