@@ -1,6 +1,15 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-magento-webhooks/compare/2.2.0...main)
+[Unreleased changes](https://github.com/justbetter/laravel-magento-webhooks/compare/2.3.0...main)
+## [2.3.0](https://github.com/justbetter/laravel-magento-webhooks/releases/tag/2.3.0) - 2026-04-02
+
+### What's Changed
+* Adjust workflows by @VincentBean in https://github.com/justbetter/laravel-magento-webhooks/pull/11
+* Laravel 13 support by @VincentBean in https://github.com/justbetter/laravel-magento-webhooks/pull/12
+
+
+**Full Changelog**: https://github.com/justbetter/laravel-magento-webhooks/compare/2.2.0...2.3.0
+
 ## [2.2.0](https://github.com/justbetter/laravel-magento-webhooks/releases/tag/2.2.0) - 2025-02-13
 
 ### What's Changed
