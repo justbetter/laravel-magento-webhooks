@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks\Tests\Commands;
 
 use Illuminate\Support\Facades\Bus;
@@ -8,10 +10,9 @@ use JustBetter\MagentoWebhooks\Commands\CleanLogsCommand;
 use JustBetter\MagentoWebhooks\Jobs\CleanLogsJob;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 
-class CleanLogsCommandTest extends TestCase
+final class CleanLogsCommandTest extends TestCase
 {
-    /** @test */
-    public function it_can_dispatch_clean_logs_job(): void
+    public function test_it_can_dispatch_clean_logs_job(): void
     {
         Bus::fake();
 
@@ -25,8 +26,7 @@ class CleanLogsCommandTest extends TestCase
         Bus::assertDispatched(CleanLogsJob::class);
     }
 
-    /** @test */
-    public function it_can_dispatch_clean_logs_job_with_date(): void
+    public function test_it_can_dispatch_clean_logs_job_with_date(): void
     {
         Bus::fake();
 

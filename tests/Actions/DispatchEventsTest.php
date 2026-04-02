@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoWebhooks\Tests\Actions;
 
 use Illuminate\Support\Facades\Event;
@@ -8,10 +10,9 @@ use JustBetter\MagentoWebhooks\Models\EventLog;
 use JustBetter\MagentoWebhooks\Tests\Fakes\Events\FakeEvent;
 use JustBetter\MagentoWebhooks\Tests\TestCase;
 
-class DispatchEventsTest extends TestCase
+final class DispatchEventsTest extends TestCase
 {
-    /** @test */
-    public function it_can_dispatch_events_as_string(): void
+    public function test_it_can_dispatch_events_as_string(): void
     {
         Event::fake();
 
@@ -23,14 +24,11 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents = app(DispatchEvents::class);
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
-        Event::assertDispatched(FakeEvent::class, function (FakeEvent $fakeEvent): bool {
-            return $fakeEvent->event === 'test-event'
-                && $fakeEvent->data === ['some' => 'value'];
-        });
+        Event::assertDispatched(FakeEvent::class, fn (FakeEvent $fakeEvent): bool => $fakeEvent->event === 'test-event'
+            && $fakeEvent->data === ['some' => 'value']);
     }
 
-    /** @test */
-    public function it_can_dispatch_events_as_array(): void
+    public function test_it_can_dispatch_events_as_array(): void
     {
         Event::fake();
 
@@ -44,14 +42,11 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents = app(DispatchEvents::class);
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
-        Event::assertDispatched(FakeEvent::class, function (FakeEvent $fakeEvent): bool {
-            return $fakeEvent->event === 'test-event'
-                && $fakeEvent->data === ['some' => 'value'];
-        });
+        Event::assertDispatched(FakeEvent::class, fn (FakeEvent $fakeEvent): bool => $fakeEvent->event === 'test-event'
+            && $fakeEvent->data === ['some' => 'value']);
     }
 
-    /** @test */
-    public function it_can_skip_dispatching_duplicate_events(): void
+    public function test_it_can_skip_dispatching_duplicate_events(): void
     {
         Event::fake();
 
@@ -67,14 +62,11 @@ class DispatchEventsTest extends TestCase
         $dispatchEvents = app(DispatchEvents::class);
         $dispatchEvents->dispatch('test-event', ['some' => 'value']);
 
-        Event::assertDispatched(FakeEvent::class, function (FakeEvent $fakeEvent): bool {
-            return $fakeEvent->event === 'test-event'
-                && $fakeEvent->data === ['some' => 'value'];
-        });
+        Event::assertDispatched(FakeEvent::class, fn (FakeEvent $fakeEvent): bool => $fakeEvent->event === 'test-event'
+            && $fakeEvent->data === ['some' => 'value']);
     }
 
-    /** @test */
-    public function it_can_skip_dispatching_events(): void
+    public function test_it_can_skip_dispatching_events(): void
     {
         Event::fake();
 
@@ -87,8 +79,7 @@ class DispatchEventsTest extends TestCase
         Event::assertNotDispatched(FakeEvent::class);
     }
 
-    /** @test */
-    public function it_logs_events_in_database(): void
+    public function test_it_logs_events_in_database(): void
     {
         Event::fake();
 
